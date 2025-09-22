@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Día</title>
+  <style>
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      text-shadow: 0 0 20px cyan, 0 0 40px #00f2ff;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #e0f7fa;
+      text-shadow: 0 0 10px #00bcd4;
+      padding: 0 10%;
+      z-index: 1;
+    }
+
+    /* Marco decorado */
+    .marco {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      right: 5%;
+      bottom: 5%;
+      border: 6px solid rgba(0, 255, 255, 0.3);
+      border-radius: 40px;
+      animation: glow 3s infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 15px cyan, 0 0 30px #00f2ff; }
+      to { box-shadow: 0 0 25px #00f2ff, 0 0 50px cyan; }
+    }
+
+    /* Corazón sutil */
+    .corazon {
+      position: absolute;
+      bottom: 40px;
+      right: 30px;
+      font-size: 3em;
+      color: rgba(255, 0, 100, 0.18);
+      text-shadow: 0 0 10px rgba(255, 0, 100, 0.35);
+      transform: rotate(-12deg);
+      z-index: 0;
+    }
+
+    /* Texto lateral */
+    .lateral {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: rotate(-90deg) translateY(-50%);
+      transform-origin: left top;
+      font-size: 1.2em;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.6);
+      text-shadow: 0 0 8px #00f2ff;
+      z-index: 1;
+    }
+
+    /* Partículas flotantes */
+    .particula {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: cyan;
+      border-radius: 50%;
+      animation: flotar 7s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(100vh) scale(0.5); }
+      100% { transform: translateY(-10vh) scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div class="marco"></div>
+
+  <h1>🥳 Feliz Día 🎉</h1>
+  <p>Solamente desearte un feliz día y gracias por todo.<br><br><br>De: David ----- Para: Dayra</p>
+
+  <div class="corazon">❤</div>
+  <div class="lateral">21 de septiembre</div>
+
+  <!-- Partículas -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      let particula = document.createElement("div");
+      particula.className = "particula";
+      particula.style.left = Math.random() * 100 + "vw";
+      particula.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(particula);
+    }
+  </script>
+</body>
+</html>
